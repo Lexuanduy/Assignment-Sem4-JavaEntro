@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+  <ui:composition template="/WEB-INF/include/template.xhtml">
+    <ui:define name="head">
+        <title>Detail</title>
+        <!-- Custom styles for this template -->
+        <h:outputStylesheet name="css/starter-template.css"/>
+    </ui:define>
+    <ui:define name="body">
+    <nav class="navbar navbar-inverse">
+      <div class="container">
+        <div class="navbar-header"> 
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+            <a class="navbar-brand" href="#">Student Manage</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+            </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+    <div class="container">
+        <div class="starter-template">
+            <h:form>
+                <div class="form-group">
+                  <label>Roll Number</label>
+                  <h:outputText class="form-control" value="#{students.currentStudent.studentCode}" >  
+                    </h:outputText>  
+                </div>
+                <div class="form-group">
+                  <label>Name: </label>
+                  <h:outputText class="form-control" value="#{students.currentStudent.fullName}" >  
+                    </h:outputText>  
+                </div>
+                <div class="form-group">
+                  <label>Gender: </label>
+                  <h:outputText class="form-control" value="#{students.currentStudent.gender}" >  
+                    </h:outputText>  
+                </div>
+                <div class="form-group">
+                  <label>Birthday (dd/MM/yyyy):</label>
+                  <h:outputText class="form-control" value="#{students.currentStudent.birthDay}" >  
+                    </h:outputText>  
+                </div>
+                <div class="form-group">
+                  <label>Phone: </label>
+                  <h:outputText class="form-control" value="#{students.currentStudent.phoneNumber}" >  
+                    </h:outputText>  
+                </div>
+                <div class="form-group">
+                  <label>Class: </label>
+                  <h:outputText class="form-control" value="#{students.currentStudent.className}" >  
+                    </h:outputText>  
+                </div>
+                <h:commandButton class="btn btn-succss "  value="Return" action="index.xhtml"  ></h:commandButton>
+              </h:form>
+      </div>
+    </div><!-- /.container -->
+    </ui:define>
+  </ui:composition> 
+</html>

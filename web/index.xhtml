@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+  <ui:composition template="/WEB-INF/include/template.xhtml">
+    <ui:define name="head">
+        <title>List</title>
+        <!-- Custom styles for this template -->
+        <h:outputStylesheet name="css/starter-template.css"/>
+    </ui:define>
+    <ui:define name="body">
+    <nav class="navbar navbar-inverse">
+      <div class="container">
+        <div class="navbar-header"> 
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+            <a class="navbar-brand" href="#">Student Manage</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="index.xhtml">Home</a></li>
+            </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+    <div class="container">
+        <div class="starter-template">
+            <h:form>
+                <div class="col-md-4 form-group search-box">
+                    <label for="usr">Search by name, birth year:</label>
+                    <h:inputText class="form-control" value="#{students.searchString}" label="Search product by name: " >  
+                    </h:inputText>  
+                </div>
+                <h:commandButton class="btn btn-default float-left m-t-25" id="submit-button" rendered="true" value="Submit" action="index.xhtml"  >
+
+                </h:commandButton>
+            </h:form>
+           <h:form>
+               <h:commandButton class="btn btn-success float-left m-t-25 m-l-25 "  value="Add Student" action="add.xhtml"  ></h:commandButton>
+           </h:form>
+            <h2 class="clear-both"><h:outputText value="Product List"></h:outputText></h2>  
+            <h:dataTable class="table" id="koka" value="#{students.studentList}" var="s">  
+                <h:column>  
+                    <f:facet name="header">ID</f:facet>  
+                    <h:outputText value="#{s.studentCode}"/>  
+                </h:column>  
+                <h:column>  
+                    <f:facet name="header">Name</f:facet>  
+                    <h:outputText value="#{s.fullName}"/>  
+                </h:column>  
+                <h:column>  
+                    <f:facet name="header">Class</f:facet>  
+                    <h:outputText value="#{s.className}"/>  
+                </h:column>  
+<!--                <h:column>  
+                    <f:facet name="header">Delete</f:facet>  
+                    <h:form>
+                        <h:commandButton class="btn btn-danger "  value="Delete" action="#{students.deleteStudent(s.studentCode)}"  ></h:commandButton>
+                    </h:form>
+                    
+               
+                    <button class="btn btn-danger">Delete</button> 
+                </h:column>  -->
+                <h:column>  
+                    <f:facet name="header">Detail</f:facet>  
+                    <h:form>
+                        <h:commandButton class="btn btn-info "  value="Detail" action="#{students.getDetailStudent(s)}"  ></h:commandButton>
+                    </h:form>
+                </h:column>  
+            </h:dataTable> 
+      </div>
+    </div><!-- /.container -->
+    </ui:define>
+  </ui:composition> 
+</html>
